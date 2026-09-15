@@ -1,0 +1,20 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+
+# env secrets
+.env.local
+.env*.local
+
+# cloudflare local state
+.wrangler/
+*.zip
+
+# logs
+.vite-dev.log
+.vite-dev.err.log
+scripts/.modern-run.log
+scripts/.modern-err.log
+scripts/.modern-state.json

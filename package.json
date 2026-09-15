@@ -1,0 +1,29 @@
+{
+  "name": "thirukkural-immersive",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "build-data": "node scripts/build-data.mjs"
+  },
+  "dependencies": {
+    "lucide-react": "^0.468.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.1.1",
+    "tamil-romanizer": "^1.0.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^6.0.7",
+    "wrangler": "^4.131.2"
+  },
+  "allowScripts": {
+    "workerd@1.20260911.1": true,
+    "esbuild@0.25.12": true,
+    "esbuild@0.28.1": true
+  }
+}
