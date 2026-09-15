@@ -40,15 +40,6 @@ const KURAL_API_URLS = [
 ];
 let remoteKuralsPromise = null;
 
-const LANGS = [
-  { code:'en', label:'English', native:'English' },
-  { code:'ta', label:'Tamil', native:'தமிழ்' },
-  { code:'hi', label:'Hindi', native:'हिन्दी' },
-  { code:'kn', label:'Kannada', native:'ಕನ್ನಡ' },
-  { code:'ml', label:'Malayalam', native:'മലയാളം' },
-  { code:'te', label:'Telugu', native:'తెలుగు' },
-];
-
 const SECTIONS = [
   { key:'aram', tamil:'அறத்துப்பால்', english:'Virtue', range:'1–380', chapters:'1–38', tone:'sage', description:'Ethics, compassion, family, self-control and the foundations of a good life.' },
   { key:'porul', tamil:'பொருட்பால்', english:'Wealth & Society', range:'381–1080', chapters:'39–108', tone:'gold', description:'Leadership, justice, friendship, learning, courage, governance and society.' },
@@ -293,10 +284,9 @@ function modernFor(n){
 
 function AppShell({children}){
   const [dark,setDark] = useState(()=>localStorage.getItem('thirukkural:theme')!=='light');
-  const [lang,setLang] = useState(()=>localStorage.getItem('thirukkural:language')||'en');
+  const [lang,setLang] = useState('en');
   const [menu,setMenu] = useState(false);
   useEffect(()=>{ document.documentElement.dataset.theme=dark?'dark':'light'; localStorage.setItem('thirukkural:theme',dark?'dark':'light'); },[dark]);
-  useEffect(()=>{ localStorage.setItem('thirukkural:language',lang); },[lang]);
   return <LanguageContext.Provider value={{lang,setLang}}><div className="app">
     <header className="nav">
       <Link to="/" className="brand" onClick={()=>setMenu(false)}><span className="brand-mark">அ</span><span><b>THIRUKKURAL</b><small>WISDOM · REIMAGINED</small></span></Link>
@@ -305,7 +295,6 @@ function AppShell({children}){
         <Link to="/explore">Explore</Link><Link to="/finder">Wisdom Finder</Link><Link to="/lens">Wisdom Lens</Link><Link to="/galaxy">Wisdom Galaxy</Link>
       </nav>
       <div className="nav-actions">
-        <select value={lang} onChange={e=>setLang(e.target.value)} aria-label="Preferred language">{LANGS.map(l=><option key={l.code} value={l.code}>{l.label}</option>)}</select>
         <button className="icon-btn" onClick={()=>setDark(v=>!v)} aria-label="Toggle theme">{dark?<Sun size={17}/>:<Moon size={17}/>}</button>
       </div>
     </header>
