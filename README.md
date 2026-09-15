@@ -2,7 +2,7 @@
 
 An immersive React + Vite website for exploring all 1,330 Thirukkurals.
 
-## V13 highlights
+## Highlights
 - Tamil Kural is always shown first on the Kural page.
 - The Kural page then shows **Meaning in English**, followed by a **Modern Interpretation**.
 - A **Roman/Tanglish transliteration** of every Kural line is displayed so non-Tamil readers can pronounce the original text.
@@ -72,7 +72,7 @@ The Worker calls Google Translate's TTS (gTTS): `tl=ta` pronounces the original 
 The project no longer depends on per-Kural Vercel API calls. The previous endpoint could return HTTP 402 during bulk loading. V14 uses a complete static JSON dataset instead, which is fetched once at build time and, if necessary, once at runtime.
 
 
-## Navigation reliability (V17)
+## Navigation reliability
 All internal navigation uses explicit hash URLs (`#/...`) so the site works reliably on static hosting without server-side rewrite rules. The Kural route is `#/kural/<number>`. Wisdom Galaxy uses `#/galaxy?chapter=<number>` for its chapter level, and every Kural node links directly to its Kural route.
 
 
